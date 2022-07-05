@@ -1,8 +1,8 @@
 const random =require('uuid')
-let rand = random.v4
+
 let getToken = async(req,res)=>{
-    let v = req.body
-   res.send(v)
+    
+   res.send(JSON.stringify("jksdhfdfkghfkfhghfdk"))
 }
 module.exports ={
     getToken
