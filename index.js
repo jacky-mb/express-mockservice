@@ -1,14 +1,2 @@
-const mb = require('mountebank');
-const settings = require('./settings');
-const test = require('./test-service')
-
-const mbServerInstance = mb.create({
-        port: settings.port,
-        pidfile: '../mb.pid',
-        logfile: '../mb.log',
-        protofile: '../protofile.json',
-        ipWhitelist: ['*']
-    });
-    mbServerInstance.then(function() {
-        test.addService();
-    })
+const jsonHelper = require('./src/helpers/json-helpers')
+console.log(jsonHelper.readJson(jsonHelper.setPath('src/stub_response/get-booking.json')))

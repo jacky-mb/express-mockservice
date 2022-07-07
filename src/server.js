@@ -1,16 +1,24 @@
-const express = require('express')
-const initAPIRoute = require('./route/api')
-var bodyParser = require('body-parser')
+import express from 'express';
+import initAPIRoute from './route/api';
+
+
+require('dotenv').config();
+var morgan = require('morgan')
+
+
+
 const app = express();
-const port = process.env.PORT || 8080;  
-// create application/json parser
-var jsonParser = bodyParser.json()
-// create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-// init api route
+const port = process.env.PORT || 8080;
+app.use(morgan('combined'))
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+
 initAPIRoute(app);
-const morgan = require('morgan');
-app.use(morgan('tiny'))
+
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
