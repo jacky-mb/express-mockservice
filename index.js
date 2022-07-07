@@ -1,2 +1,3 @@
 const jsonHelper = require('./src/helpers/json-helpers')
-console.log(jsonHelper.readJson(jsonHelper.setPath('src/stub_response/get-booking.json')))
+let out = jsonHelper.readJson(process.cwd()+'/src/stub_response/get-booking.json')
+console.log(out)

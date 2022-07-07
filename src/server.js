@@ -8,7 +8,7 @@ var morgan = require('morgan')
 
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9999;
 app.use(morgan('combined'))
 
 app.use(express.urlencoded({ extended: false }));
@@ -18,9 +18,7 @@ app.use(express.json());
 initAPIRoute(app);
 
 
-
-
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`App is running at http://localhost:${port}`)
 })
 

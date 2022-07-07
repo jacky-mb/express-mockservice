@@ -1,10 +1,7 @@
 const fs = require('fs')
-const path =require ('path')
-let readJson = (p) =>{
-    let dataRaw = fs.readFileSync(p)
-    return out = JSON.parse(dataRaw)
+
+const readJson =  (path) =>{
+    return fs.readFileSync(path,{ encoding: 'utf8' });
 }
-let setPath = (p)=>{
-    return path.resolve(__dirname, p)
-}
-module.exports = {readJson,setPath}
+
+module.exports = {readJson}
