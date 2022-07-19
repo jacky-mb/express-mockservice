@@ -16,7 +16,9 @@ app.use(express.json());
 
 
 initAPIRoute(app);
-
+app.use((req,res)=>{
+    res.status(404).send("404 NotFound")
+})
 
 app.listen(port, () => {
     console.log(`App is running at http://localhost:${port}`)

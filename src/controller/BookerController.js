@@ -2,9 +2,13 @@
 import {readJson} from '../helpers/json-helpers'
 import fs from 'fs'
 
-
+let test = (req,res)=>{
+    return res.json({
+        message : "hello"
+    })
+}
 const getToken =(req,res)=>{
-    return res.send("kdhfjkhdfjk")
+    return res.send(res.params)
 }
 
 const getBookings = (req, res) => {
@@ -12,5 +16,8 @@ const getBookings = (req, res) => {
     return res.send(listbooking)
 }
 
-module.exports = {getBookings,getToken}
+const getBookingById = (req,res)=>{
+    return res.send(req.query)
+}
+module.exports = {getBookings,getToken,getBookingById,test}
 

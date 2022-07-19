@@ -4,7 +4,9 @@ import booker  from '../controller/BookerController'
 let router = express.Router();
 
 const initAPIRoute = (app) => {
-    router.post('/bookings',booker.getBookings)
+    router.get('/test',booker.test)
+    router.get('/bookings',booker.getBookings)
+    router.get('/booking/:id',booker.getBookingById)
     router.get('/auth',booker.getToken)
 
     return app.use('/api/v1/', router)
